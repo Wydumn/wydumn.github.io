@@ -47,7 +47,7 @@ c"><meta name="keywords" content="Blog, web, fullstack, Typescript"><meta conten
 <h2 id="2-分层-layered-架构"><a href="#2-分层-layered-架构" class="headerlink" title="2. 分层(layered)架构"></a>2. 分层(layered)架构</h2><p>代码结构如何组织。</p>
 <p>常见的MVC，Views - Controllers - Services - Database，四层架构，根据单一职责原则，每一层之间，功能独立，上层调用下层。</p>
 <p>前后端分离后，View就由前端负责。</p>
-<p><img src="https://www.simform.com/wp-content/uploads/2021/05/webapparchitecture3.png" alt="Web Application Architecture 3"></p>
+<p><img src="/images/mvc.png" alt="MVC Architecture"></p>
 <h2 id="3-Clean-Architecture"><a href="#3-Clean-Architecture" class="headerlink" title="3. Clean Architecture"></a>3. Clean Architecture</h2><p><img src="https://tse1-mm.cn.bing.net/th/id/OIP-C.i9kfCjMssRm9jA8AW-r56AHaFX?rs=1&pid=ImgDetMain" alt="Tìm hiểu về clean architecture  IT life"></p>
 <p>依赖注入 + DDD.</p>
 <p>基于MVC的架构，业务越来越复杂之后，改一个字段或变一下定义，会影响多个接口，不够灵活。为了灵活应对复杂业务模型的变化，DDD就普及起来。专注于复杂的业务模型拆分，基础设施和实现反过来依赖于业务模型。</p>
