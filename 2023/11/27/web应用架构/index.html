@@ -1,0 +1,79 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="Feymann"><title>web应用架构 · Feymann</title><meta name="description" content="web应用架构1. 多层(Multi-tier)架构逻辑实体如何组织。
+
+1-tier 架构
+
+  不需要联网的桌面应用就是1-tier架构，比如日历、单机游戏，本机自给自足，不需要其他服务。
+
+2-tier架构
+
+  
+  也就是C&amp;#x2F;S架构，服务器不连接外部服务
+
+三层架构
+
+  
+
+c"><meta name="keywords" content="Blog, web, fullstack, Typescript"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 7.0.0"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo.png" style="width:127px;"><h3 title=""><a href="/">Feymann</a></h3><div class="description"><p>A programmer</p></div></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/wydumn"><i class="fa fa-github"></i></a></li></ul><div class="footer"><div class="p"> <span>©  </span><i class="fa fa-star"></i><span> Feymann</span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a><span> & </span><a href="https://github.com/mrcore/hexo-theme-Anatole-Core" target="_blank">Anatole-Core  </a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/archives">归档</a></li><li><a href="/about">关于</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>web应用架构</a></h3></div><div class="post-content"><h1 id="web应用架构"><a href="#web应用架构" class="headerlink" title="web应用架构"></a>web应用架构</h1><h2 id="1-多层-Multi-tier-架构"><a href="#1-多层-Multi-tier-架构" class="headerlink" title="1. 多层(Multi-tier)架构"></a>1. 多层(Multi-tier)架构</h2><p>逻辑实体如何组织。</p>
+<ol>
+<li>1-tier 架构</li>
+</ol>
+<p>  不需要联网的桌面应用就是1-tier架构，比如日历、单机游戏，本机自给自足，不需要其他服务。</p>
+<ol start="2">
+<li>2-tier架构</li>
+</ol>
+<p>  <img src="https://fitech101.aalto.fi/static/9738fa8547625e5ab61d000140c8f4a1/72668/client-server-model.png" alt="Clientserver model The server provides resources and services to one or more clients"></p>
+<p>  也就是C&#x2F;S架构，服务器不连接外部服务</p>
+<ol start="3">
+<li>三层架构</li>
+</ol>
+<p>  <img src="https://fitech101.aalto.fi/static/fd59741aa2a27403d0a4b3d64a0ebadf/06b3c/3-tier-architecture.png" alt="Example of 3tier architecture Web applications that have a client, a web server, and a database, use 3tier architecture"></p>
+<ul>
+<li><p>client: 表示层</p>
+<p>HTML、CSS、Javascript等编写的SPA、MPA应用</p>
+</li>
+<li><p>server：应用层</p>
+<p>NodeJS、Java等语言编写的服务器应用</p>
+</li>
+<li><p>database：数据层</p>
+<p>SQL、NoSQL、Elasticsearch等</p>
+</li>
+</ul>
+<p>  当需要将用户数据持久化时，就要存储到数据库中</p>
+<ol start="4">
+<li>四层架构</li>
+</ol>
+<p>  <img src="https://fitech101.aalto.fi/static/0d85f48c9350b2e0384dadd2b2e189c1/7f1ed/4-tier-architecture.png" alt="Example of a 4tier architecture with clients connecting to a load balancer, which then distributes the load to web servers Web servers connect to the same database"></p>
+<p>  当用户数量增多，部署单个服务不能满足需求，需要部署多个服务器，这时需要负载均衡来均发请求到服务器上，平衡资源分配和有效利用。</p>
+<h2 id="2-分层-layered-架构"><a href="#2-分层-layered-架构" class="headerlink" title="2. 分层(layered)架构"></a>2. 分层(layered)架构</h2><p>代码结构如何组织。</p>
+<p>常见的MVC，Views - Controllers - Services - Database，四层架构，根据单一职责原则，每一层之间，功能独立，上层调用下层。</p>
+<p>前后端分离后，View就由前端负责。</p>
+<p><img src="https://www.simform.com/wp-content/uploads/2021/05/webapparchitecture3.png" alt="Web Application Architecture 3"></p>
+<h2 id="3-Clean-Architecture"><a href="#3-Clean-Architecture" class="headerlink" title="3. Clean Architecture"></a>3. Clean Architecture</h2><p><img src="https://tse1-mm.cn.bing.net/th/id/OIP-C.i9kfCjMssRm9jA8AW-r56AHaFX?rs=1&pid=ImgDetMain" alt="Tìm hiểu về clean architecture  IT life"></p>
+<p>依赖注入 + DDD.</p>
+<p>基于MVC的架构，业务越来越复杂之后，改一个字段或变一下定义，会影响多个接口，不够灵活。为了灵活应对复杂业务模型的变化，DDD就普及起来。专注于复杂的业务模型拆分，基础设施和实现反过来依赖于业务模型。</p>
+<h2 id="4-Monolithic-Architecture-单体架构"><a href="#4-Monolithic-Architecture-单体架构" class="headerlink" title="4. Monolithic Architecture 单体架构"></a>4. Monolithic Architecture 单体架构</h2><p><img src="https://learn.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/media/image5-13.png" alt="Figure 513"></p>
+<p>前后端在一个仓库，同时部署。一个项目刚启动时，业务简单，一般是单体架构。</p>
+<p>当项目逐步发展：</p>
+<ol>
+<li><p>无论前端还是后端单独改动都要整体重新部署</p>
+</li>
+<li><p>当其中一部分要扩展时，只能扩展全部。</p>
+</li>
+</ol>
+<p>所以工程越来越大，就会越麻烦。而根据容器的原则：一个容器只做一件事，只用一个进程。这也是需要拆分的，但是项目的初期，不知道如何拆分时，You aren’t gonna need it，单体架构扩展起来虽然成本高但是更便捷。</p>
+<h2 id="5-微服务-microservice-架构"><a href="#5-微服务-microservice-架构" class="headerlink" title="5. 微服务(microservice)架构"></a>5. 微服务(microservice)架构</h2><p><img src="https://learn.microsoft.com/en-us/azure/architecture/includes/images/microservices-logical.png" alt="Logical diagram of microservices architecture style"></p>
+<p>单体架构拆分之后，就是微服务架构。每个服务单独维护，可以用不同的语言重写。但很少有一开始就设计为微服务架构，成本很高。</p>
+<h2 id="6-无服务-serverless-架构"><a href="#6-无服务-serverless-架构" class="headerlink" title="6. 无服务(serverless)架构"></a>6. 无服务(serverless)架构</h2><p>无服务架构是应用的一种部署方式。云服务商自动扩展服务数量，不是运维人员确定。请求多了，就多开几个服务器，扩展一些服务，请求少了就关掉。</p>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-11-27</span><i class="fa fa-tag"></i><span class="leancloud_visitors"></span></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="" onclick="javascript:join_favorite()" ref="sidebar"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" target="_blank" rel="noopener" href="http://twitter.com/home?status=,http://example.com/2023/11/27/web应用架构/,Feymann,web应用架构,;"></a></div></div><div class="pagination"><ul class="clearfix"></ul></div><script src="/js/visitors.js"></script><a id="comments"></a><div id="vcomments" style="margin:0 30px;"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//cdn.jsdelivr.net/gh/xcss/valine@latest/dist/Valine.min.js"></script><script>var valine = new Valine({
+  el:'#vcomments',
+  notify:false || false, 
+  verify:false|| false, 
+  app_id:'',
+  app_key:'',
+  placeholder:'...',
+  path: window.location.pathname,
+  serverURLs: '',
+  visitor:true,
+  recordIP:true,
+  avatar:'mp'
+})</script></div></div></div></div><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/add-bookmark.js"></script><script src="/js/baidu-tongji.js"></script></body></html>
