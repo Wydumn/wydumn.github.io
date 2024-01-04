@@ -1,0 +1,114 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="Feymann"><title>HTTPS · Feymann</title><meta name="description" content="HTTPS
+ 超文本传输安全协议（HyperText Transfer Protocol Secure，常称为HTTP over TLS、HTTP over SSL或HTTP Secure）是一种通过计算机网络进行安全通信的传输协议。HTTPS经由HTTP进行通信，但利用SSL&amp;#x2F;TLS来加"><meta name="keywords" content="Blog, web, fullstack, Typescript"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 7.0.0"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo.png" style="width:127px;"><h3 title=""><a href="/">Feymann</a></h3><div class="description"><p>A programmer</p></div></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/wydumn"><i class="fa fa-github"></i></a></li></ul><div class="footer"><div class="p"> <span>©  </span><i class="fa fa-star"></i><span> Feymann</span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a><span> & </span><a href="https://github.com/mrcore/hexo-theme-Anatole-Core" target="_blank">Anatole-Core  </a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/archives">归档</a></li><li><a href="/about">关于</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>HTTPS</a></h3></div><div class="post-content"><h1 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h1><blockquote>
+<p> <strong>超文本传输安全协议</strong>（<strong>H</strong>yper<strong>T</strong>ext <strong>T</strong>ransfer <strong>P</strong>rotocol <strong>S</strong>ecure，常称为HTTP over TLS、HTTP over SSL或HTTP Secure）是一种通过<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B6%B2%E7%B5%A1">计算机网络</a>进行安全通信的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%B6%B2%E8%B7%AF%E5%82%B3%E8%BC%B8%E5%8D%94%E5%AE%9A">传输协议</a>。HTTPS经由<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/HTTP">HTTP</a>进行通信，但利用<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E4%BC%A0%E8%BE%93%E5%B1%82%E5%AE%89%E5%85%A8">SSL&#x2F;TLS</a>来<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%8A%A0%E5%AF%86">加密</a>数据包。 </p>
+</blockquote>
+<h3 id="为什么要用HTTPS"><a href="#为什么要用HTTPS" class="headerlink" title="为什么要用HTTPS"></a>为什么要用HTTPS</h3><p>在网页上登录私人账号或者使用移动支付时，需要向服务端发送请求进行认证，通过请求头cookie或者token带上凭证，在服务端认证，然而在HTTP协议下，容易遭到<a href="%5Bhttps://zh.wikipedia.org/wiki/%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB%5D(https://zh.wikipedia.org/wiki/%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB)">中间人攻击</a>，那通信就是在一个不<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Secure_channel">安全信道</a>内进行，也就不能保证交换数据的隐私与完整性。</p>
+<p>所以，</p>
+<blockquote>
+<p> HTTPS开发的主要目的，是提供对<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%B6%B2%E7%AB%99">网站</a>服务器的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81">身份认证</a>，保护交换数据的隐私与<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%AE%8C%E6%95%B4%E6%80%A7">完整性</a>。 </p>
+<p> 主要作用是在不安全的网络上创建一个安全信道，并可在使用适当的加密包和<em>服务器证书可被验证且可被信任时</em>，对<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%AB%8A%E8%81%BD">窃听</a>和<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB">中间人攻击</a>提供合理的防护。 </p>
+</blockquote>
+<h3 id="HTTPS为什么是安全的"><a href="#HTTPS为什么是安全的" class="headerlink" title="HTTPS为什么是安全的"></a>HTTPS为什么是安全的</h3><p>HTTPS是如何保证在不安全的网络上信道安全？前面说过HTTPS是通过SSL&#x2F;TSL加密数据包来实现HTTP的安全通信，所以问题的关键，SSL加密是怎么实现的？</p>
+<p><strong>公钥加密和对称性加密的组合</strong></p>
+<blockquote>
+<p> 密钥是一种参数，它是在明文转换为密文或将密文转换为明文的算法中输入的参数。密钥分为对称密钥与非对称密钥。 </p>
+</blockquote>
+<h5 id="为什么交换密钥？"><a href="#为什么交换密钥？" class="headerlink" title="为什么交换密钥？"></a>为什么交换密钥？</h5><p>客户端通过信道将消息发送给服务端，并对消息进行加密；接收方接收到消息，进行必要的解密，而这应该建立在接收者知道发送者如何加密的基础上；当服务端响应给客户端消息时，显然客户端应该知道服务端是如何加密的。</p>
+<p>所以加密和解密应在密钥交换的基础上进行。</p>
+<h5 id="Symmetric-Key-Cryptography-对称密钥加密"><a href="#Symmetric-Key-Cryptography-对称密钥加密" class="headerlink" title="Symmetric Key Cryptography 对称密钥加密"></a>Symmetric Key Cryptography 对称密钥加密</h5><p>即密钥加密。发送方和接收方共享密钥，加密和解密使用相同的密钥，或者两个简单相互推算的密钥。</p>
+<p><img src="/images/https/https1.png"></p>
+<ol>
+<li>发送方发送消息时，加密算法接受密钥和消息作为参数，对消息进行加密，加密完成后，生成密文，并通过信道发送给接收方。</li>
+<li>接收方接收到消息后，解密算法使用同样的密钥将密文解密为明文。</li>
+<li>如果有第三方恶意监听截获密文，没有密钥也很难解密。即使暴力破解，也要消耗巨大算力，这显然不划算。</li>
+</ol>
+<p>在只有发送方和接收方知道密钥的情况下，才可以实现发送的密文可以被唯一解密。解密使用加密时的密钥，接收方和发送方使用同一密钥，这就是对称密钥加密。</p>
+<p>所以，能否实现对称加密，就看能否保证密钥只被接收方和发送方访问。</p>
+<p>如果通信是在一个不安全的信道内进行，如何保证？</p>
+<h5 id="Public-key-cryptography-公钥加密"><a href="#Public-key-cryptography-公钥加密" class="headerlink" title="Public-key cryptography 公钥加密"></a>Public-key cryptography 公钥加密</h5><blockquote>
+<p> <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%85%AC%E9%92%A5">公钥</a>密钥加密。它需要使用不同的密钥来分别完成加密和解密操作，一个<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%85%AC%E5%BC%80%E5%8F%91%E5%B8%83">公开发布</a>，即公开密钥，另一个由用户自己秘密保存，即私用密钥。 </p>
+</blockquote>
+<p><img src="/images/https/https2.png"></p>
+<ol>
+<li>发送方发送消息时，加密算法接受公钥和消息作为参数，加密完成后，密文通过不安全的信道发送给接收方。</li>
+<li>接收方接收到消息后，解密算法使用私钥将密文解密。私钥只有接收方知道，所以只有接收方能解密。</li>
+<li>第三方入侵者截获到加密消息，没有私钥也无法解密。</li>
+</ol>
+<p>为什么不能加密解密都使用公钥呢？公钥加密解密的开销太大。对称加密的速度比公钥加密快很多。</p>
+<h3 id="SSL-TLS如何工作"><a href="#SSL-TLS如何工作" class="headerlink" title="SSL &#x2F; TLS如何工作"></a>SSL &#x2F; TLS如何工作</h3><p>TSL使用公钥密码术在发送方和接收方之间建立公共密钥，然后使用对称密钥密码术进行进一步通信。</p>
+<p><img src="/images/https/https3.png"></p>
+<p> 一旦客户端和服务器都同意使用TLS协议，他们通过使用一个握手过程协商出一个有状态的连接以传输数据。通过握手，客户端和服务器协商各种参数用于创建安全连接： </p>
+<ol>
+<li><p>客户端连接到服务器，发送Client Hello要求创建安全连接，<strong>握手开始</strong></p>
+<ul>
+<li>Client Hello 消息内容</li>
+</ul>
+<ol>
+<li>支持的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%82%B3%E8%BC%B8%E5%B1%A4%E5%AE%89%E5%85%A8%E6%80%A7%E5%8D%94%E5%AE%9A#%E7%99%BC%E5%B1%95%E6%AD%B7%E5%8F%B2">TLS协议版本</a></li>
+<li>并列出受支持的密码组合（加密算法和加密哈希函数）</li>
+<li>客户端生成的随机数RNc（用于之后的session key）</li>
+</ol>
+</li>
+<li><p>服务器从列表中决定加密和散列函数，发送Server Hello</p>
+<ul>
+<li>Server Hello 消息内容</li>
+</ul>
+<ol>
+<li>确认使用的TLS议版本，浏览器与服务器支持的版本不一致，服务器关闭通信</li>
+<li>服务器生成的随机数RNs（用于之后的session key）</li>
+<li>确认使用的加密算法和函数</li>
+</ol>
+</li>
+<li><p>服务器发回其数字证书，证书包括</p>
+<ol>
+<li>服务器名称</li>
+<li>授信机构(Certification Authentication)</li>
+<li>服务器公钥(public key server)</li>
+</ol>
+</li>
+<li><p>客户端确认证书的有效性</p>
+</li>
+<li><p>服务器请求客户端公钥。客户端有证书则双向身份认证，无证书随机生成公钥。</p>
+</li>
+<li><p>客户端创建一个随机pre-master密钥，并使用服务端公钥对其加密，之后发给服务端</p>
+</li>
+<li><p>服务端接收到pre-master密钥。服务端和客户端基于pre-master密钥各自生成Master密钥和会话密钥(session key)</p>
+</li>
+<li><p>客户端发送”Change cipher spec”给服务端，表示客户端已经开始使用session key来对消息散列加密，同时发送”Client finished”消息</p>
+</li>
+<li><p>服务端接收到”Change cipher spec”，将其记录层状态转换为使用Session key对称加密。发送”Server finished”消息到客户端。</p>
+</li>
+<li><p>之后双方可以在建立的安全信道上进行数据交换，所有消息通过Session key进行对称加密。</p>
+</li>
+</ol>
+<p>任何一个步骤失败，TLS握手过程就会失败并断开连接。握手完毕后的连接是安全的，直到关闭连接。</p>
+<p>对称加密保证了通信的私密性，公钥加密保证数据的完整性。</p>
+<p>在传输层之上，建立了TLS协议，确保客户端和服务器之间的安全通信；在TLS之上，运行HTTP。</p>
+<h3 id="SSL的配置"><a href="#SSL的配置" class="headerlink" title="SSL的配置"></a>SSL的配置</h3><p>如果在生产环境，要向用户提供服务，就要通过认证过程：通过证书颁发机构（Certification Authorities），颁发公共证书。</p>
+<p>这些证书颁发机构将验证你的凭据，确保你符合声明的身份。通过后，CA向你颁发一个公钥和一个私钥，在服务器站点使用。因此，一旦CA发出公钥和私钥，公钥将由CA认证，然后公钥也将携带公钥证书。这个证书也就是你的服务发送给客户端的证书。</p>
+<p>由于大多数浏览器都拥有这些CA的可信根证书，所以，他们将能够通过获取你的证书，然后在已知证书已由CA签名的情况下验证证书，生成你的私钥。这样，客户端建立起认证。</p>
+<p>但在开发环境下，如何配置公钥和私钥？</p>
+<p>使用OpenSSL生成<strong>自签名证书</strong>。</p>
+<p>安装OpenSSL之后，在CMD窗口下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">C:\OpenSSL-Win64\bin\openssl.cfg	// 打开openssl.cfg文件</span><br><span class="line"><span class="meta prompt_">OpenSSL&gt; </span><span class="language-bash">genrsa -out private.key 1024	// 使用rsa算法，生成1024位长的私钥     没有-out，不会自动保存为文件，而是输出在命令行</span></span><br><span class="line"><span class="meta prompt_">OpenSSL&gt; </span><span class="language-bash">req -new -key private.key -out cert.csr	// 生成certificate signing request文件</span></span><br><span class="line"><span class="meta prompt_">OpenSSL&gt; </span><span class="language-bash">x509 -req -<span class="keyword">in</span> cert.csr -signkey private.key -out certificate.pem	// 生成证书，可以分发给客户端</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Node配置HTTPS服务"><a href="#Node配置HTTPS服务" class="headerlink" title="Node配置HTTPS服务"></a>Node配置HTTPS服务</h3><p>bin文件夹下，更改<code>www</code>文件如下</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">. . . </span><br><span class="line"><span class="keyword">var</span> https = <span class="built_in">require</span>(<span class="string">&#x27;https&#x27;</span>)</span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line"></span><br><span class="line">. . . </span><br><span class="line">app.<span class="title function_">set</span>(<span class="string">&#x27;secPort&#x27;</span>, port+<span class="number">443</span>)	<span class="comment">// https服务端口一般+443</span></span><br><span class="line">. . .</span><br><span class="line"><span class="comment">//	配置HTTPS服务必须的私钥和证书</span></span><br><span class="line"><span class="keyword">var</span> options = &#123;</span><br><span class="line">    <span class="attr">key</span>: fs.<span class="title function_">readFileSync</span>(__dirname+<span class="string">&#x27;/private.key&#x27;</span>),</span><br><span class="line">    <span class="attr">cert</span>: fs.<span class="title function_">readFileSync</span>(__dirname+<span class="string">&#x27;/certificate.pem&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 创建HTTPS服务</span></span><br><span class="line"><span class="keyword">var</span> secureServer = https.<span class="title function_">createServer</span>(options, app)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 启动服务</span></span><br><span class="line">secureServer.<span class="title function_">listen</span>(app.<span class="title function_">get</span>(<span class="string">&#x27;secPort&#x27;</span>), <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Server listening on port&#x27;</span>, app.<span class="title function_">get</span>(<span class="string">&#x27;secPort&#x27;</span>))</span><br><span class="line">&#125;)</span><br><span class="line">secureServer.<span class="title function_">on</span>(<span class="string">&#x27;error&#x27;</span>, onError)</span><br><span class="line">secureServer.<span class="title function_">on</span>(<span class="string">&#x27;listening&#x27;</span>, onListening)</span><br></pre></td></tr></table></figure>
+
+<p>更改<code>spp.js</code>文件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="title function_">all</span>(<span class="string">&#x27;*&#x27;</span>, <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (req.<span class="property">secure</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="title function_">next</span>()</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        res.<span class="title function_">redirect</span>(<span class="number">307</span>, <span class="string">&#x27;https://&#x27;</span> + req.<span class="property">hostname</span> + <span class="string">&#x27;:&#x27;</span> + app.<span class="title function_">get</span>(<span class="string">&#x27;secPort&#x27;</span>) + req.<span class="property">url</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2020-04-12</span><i class="fa fa-tag"></i><a class="tag" href="/tags/HTTPS/" title="HTTPS">HTTPS </a><a class="tag" href="/tags/cryptography/" title="cryptography">cryptography </a><span class="leancloud_visitors"></span></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="" onclick="javascript:join_favorite()" ref="sidebar"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" target="_blank" rel="noopener" href="http://twitter.com/home?status=,http://example.com/2020/04/12/HTTPS/,Feymann,HTTPS,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/2023/11/27/web%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84/" title="web应用架构">上一篇</a></li><li class="next pagbuttons"><a class="btn" role="navigation" href="/2020/03/29/HTTP/" title="HTTP">下一篇</a></li></ul></div><script src="/js/visitors.js"></script><a id="comments"></a><div id="vcomments" style="margin:0 30px;"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//cdn.jsdelivr.net/gh/xcss/valine@latest/dist/Valine.min.js"></script><script>var valine = new Valine({
+  el:'#vcomments',
+  notify:false || false, 
+  verify:false|| false, 
+  app_id:'',
+  app_key:'',
+  placeholder:'...',
+  path: window.location.pathname,
+  serverURLs: '',
+  visitor:true,
+  recordIP:true,
+  avatar:'mp'
+})</script></div></div></div></div><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/add-bookmark.js"></script><script src="/js/baidu-tongji.js"></script></body></html>
