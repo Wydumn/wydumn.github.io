@@ -1,0 +1,111 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="Feymann"><title>什么是面向对象 · Feymann</title><meta name="description" content="面向对象，什么是对象？
+​ 面向对象思想的创始者Alan Kay受分子生物学的启发，提出了面向对象这一思想。可以看出，这里所说的对象更像是研究对象。一个实验中，每一个小白鼠都是一个对象，即使是同一对照组，独立的研究个体就是一个单独的对象。再来看Alan Kay 发明smalltalk语言之前启蒙面向"><meta name="keywords" content="Blog, web, fullstack, Typescript"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 7.0.0"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo.png" style="width:127px;"><h3 title=""><a href="/">Feymann</a></h3><div class="description"><p>A programmer</p></div></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/wydumn"><i class="fa fa-github"></i></a></li></ul><div class="footer"><div class="p"> <span>©  </span><i class="fa fa-star"></i><span> Feymann</span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a><span> & </span><a href="https://github.com/mrcore/hexo-theme-Anatole-Core" target="_blank">Anatole-Core  </a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/archives">归档</a></li><li><a href="/about">关于</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>什么是面向对象</a></h3></div><div class="post-content"><p>面向对象，什么是对象？</p>
+<p>​ 面向对象思想的创始者Alan Kay<a target="_blank" rel="noopener" href="http://xahlee.info/comp/Alan_Kay_on_object_oriented_programing.html">受分子生物学的启发</a>，提出了面向对象这一思想。可以看出，这里所说的对象更像是研究对象。一个实验中，每一个小白鼠都是一个对象，即使是同一对照组，独立的研究个体就是一个单独的对象。再来看Alan Kay 发明smalltalk语言之前启蒙面向对象的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Simula">simula</a>语言： 据说，他们是为了模拟船只而设计的这种语言，并且对不同船只间属性的相互影响感兴趣。他们将不同的船只归纳为不同的类，而每一个对象，基于它的类，可以定义它自己的属性和行为。</p>
+<p>所以在面向对象<strong>思想</strong>中是一个对象是一个更普适的概念。</p>
+<blockquote>
+<p>在《面向对象分析与设计》这本书中，Grady Booch 替我们做了总结，他认为，从人类的认知角度来说，对象应该是下列事物之一：</p>
+<ol>
+<li>一个可以触摸或者可以看见的东西；</li>
+<li>人的智力可以理解的东西；</li>
+<li>可以指导思考或行动（进行想象或施加动作）的东西。</li>
+</ol>
+</blockquote>
+<p>那在面向对象<strong>编程</strong>中，对象指的又是什么？不同的编程语言有自己的特性，所以描述对象的思路又是不同的。</p>
+<ol>
+<li>类 class</li>
+</ol>
+<blockquote>
+<p>C++和Java等使用“类”概念。</p>
+<p>这里更像是归类。看<a target="_blank" rel="noopener" href="http://www.eeng.dcu.ie/~ee553/ee402notes/html/ch05s06.html">这里</a>。</p>
+</blockquote>
+<ol start="2">
+<li>原型 prototype</li>
+</ol>
+<blockquote>
+<p>JavaScript使用的方式</p>
+<p>这里是分类。有点像类比的概念。对象只描述自己与原型的区别： 🐟能游泳，甲鱼就是有壳，那作为鱼，它也一定能有游泳。</p>
+</blockquote>
+<p>描述对象，怎么描述对象？描述对象的什么？对象的<strong>特征</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 对象的唯一标识性</span><br><span class="line"> 2. 状态：同一对象可能处于不同状态之下</span><br><span class="line"> 3. 行为：对象的状态可能因为行为而变化</span><br></pre></td></tr></table></figure>
+
+<h2 id="JavaScript如何描述对象"><a href="#JavaScript如何描述对象" class="headerlink" title="JavaScript如何描述对象"></a>JavaScript如何描述对象</h2><ol>
+<li>唯一标识性</li>
+</ol>
+<blockquote>
+<p>一组实验有多只小白鼠，一只小白鼠就是一个对象，小白鼠的唯一标识性就是用编号来表达<br>那对象的唯一标识性在计算机语言中，通过内存地址的唯一性来表示</p>
+</blockquote>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> x = &#123; <span class="attr">value</span>: <span class="number">0</span> &#125;</span><br><span class="line"><span class="keyword">let</span> y = &#123; <span class="attr">value</span>: <span class="number">0</span> &#125;</span><br><span class="line">x == y <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>状态和行为</li>
+</ol>
+<blockquote>
+<p>之所以这两个特征放在一起，是因为在JavaScript中，基于”first class” funciton，状态和行为统一抽象为”属性”。<br>JAVA中分别为 “属性” 和 “方法”；C++中称为“成员变量“ 和 ”成员函数“。</p>
+</blockquote>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = &#123;</span><br><span class="line">    <span class="attr">a</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="title function_">b</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">a</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>动态性</li>
+</ol>
+<p>  在javascript中，对象因为语言特性而存在高度的动态性：能够在运行时为对象添加和改变状态、行为。</p>
+<blockquote>
+<p>运行时：<br>The time period to convert the source code to machine code is known as compile time. Tasks such as syntax analysis, semantic analysis, and code generation occur at compile time. Time period to run the executable file generated at compile time is referred as runtime.</p>
+<p>那就是求值之后的计算过程？？</p>
+</blockquote>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> x = &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;</span><br><span class="line">x.<span class="property">b</span> = <span class="number">2</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(x.<span class="property">a</span>, x.<span class="property">b</span>) <span class="comment">// 1 2</span></span><br></pre></td></tr></table></figure>
+<h2 id="两类属性"><a href="#两类属性" class="headerlink" title="两类属性"></a>两类属性</h2><p>JavaScript用一组特征来描述对象：</p>
+<ol>
+<li><p>数据属性</p>
+</li>
+<li><p>value：属性的值</p>
+</li>
+<li><p>writable：属性能否被赋值</p>
+</li>
+<li><p>enumerable：for … in 能否枚举该属性</p>
+</li>
+<li><p>configurable：该属性能否被删除或者改变</p>
+</li>
+</ol>
+<p>  数据属性一般只关心它的”值”特征</p>
+<ol start="2">
+<li><p>访问器属性</p>
+</li>
+<li><p>getter：函数或undefined，取属性值时调用</p>
+</li>
+<li><p>setter：函数或undefined，设置属性值时调用</p>
+</li>
+<li><p>enumerable：for … in 能否枚举该属性</p>
+</li>
+<li><p>configurable：该属性能否被删除或者改变</p>
+</li>
+<li><p>例子</p>
+</li>
+</ol>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> x = &#123; <span class="attr">v</span>: <span class="number">0</span> &#125;</span><br><span class="line">x.<span class="property">k</span> = <span class="string">&quot;key&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">getOwnPropertyDescriptor</span>(<span class="params">x, <span class="string">&quot;v&quot;</span></span>)</span><br><span class="line">&#123;<span class="attr">value</span>: <span class="number">0</span>, <span class="attr">writable</span>: <span class="literal">true</span>, <span class="attr">enumerable</span>: <span class="literal">true</span>, <span class="attr">configurable</span>: <span class="literal">true</span>&#125;</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">getOwnPropertyDescriptor</span>(<span class="params">x, <span class="string">&quot;k&quot;</span></span>)</span><br><span class="line">&#123;<span class="attr">value</span>: <span class="string">&quot;key&quot;</span>, <span class="attr">writable</span>: <span class="literal">true</span>, <span class="attr">enumerable</span>: <span class="literal">true</span>, <span class="attr">configurable</span>: <span class="literal">true</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>  所以我们一般通过字面量创建的对象得到的是数据属性，</p>
+<p>  要想定义访问器属性，即改变属性的特征：</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(obj, prop, descriptor)</span><br><span class="line"></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(x, <span class="string">&quot;c&quot;</span>, </span><br><span class="line">   &#123;<span class="attr">value</span>: <span class="string">&quot;haha&quot;</span>, <span class="attr">writable</span>: <span class="literal">false</span>, <span class="attr">enumerable</span>: <span class="literal">false</span>, <span class="attr">configurable</span>: <span class="literal">true</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">getOwnPropertyDescriptor</span>(x, <span class="string">&quot;c&quot;</span>)</span><br><span class="line"><span class="comment">// &#123;value: &quot;haha&quot;, writable: false, enumerable: false, configurable: true&#125;</span></span><br><span class="line"></span><br><span class="line">x <span class="comment">// &#123;v: 0, k: &quot;key&quot;, c: &quot;haha&quot;&#125;</span></span><br><span class="line"></span><br><span class="line">x.<span class="property">c</span> = <span class="string">&quot;heihei&quot;</span></span><br><span class="line">x <span class="comment">// &#123;v: 0, k: &quot;key&quot;, c: &quot;haha&quot;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> item <span class="keyword">in</span> x) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(item)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// v k</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> x.<span class="property">c</span></span><br></pre></td></tr></table></figure>
+<p>  <strong>get和set</strong></p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> y = &#123; </span><br><span class="line">    <span class="keyword">set</span> <span class="title function_">b</span>(<span class="params">state</span>) &#123; <span class="variable language_">this</span>.<span class="property">state</span> = <span class="number">2</span> &#125;,</span><br><span class="line">    <span class="keyword">get</span> <span class="title function_">a</span>() &#123; <span class="keyword">return</span> <span class="number">0</span>&#125; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">y.<span class="property">state</span> = <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="attr">state</span>: <span class="number">3</span></span><br><span class="line">get <span class="attr">a</span>: ƒ <span class="title function_">a</span>()</span><br><span class="line">set <span class="attr">b</span>: ƒ <span class="title function_">b</span>(state)</span><br><span class="line"><span class="attr">__proto__</span>: <span class="title class_">Object</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a)     <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+<p>  结论！：</p>
+<blockquote>
+<p>JavaScript<strong>对象的运行时</strong>是一个“属性的集合”，属性以字符串或者Symbol为key，以数据属性特征值或者访问器属性特征值为value</p>
+</blockquote>
+<ol start="4">
+<li><blockquote>
+<p>对象是一个属性的索引结构（可以以较快的速度用key来查找value的字典）</p>
+</blockquote>
+</li>
+</ol>
+<p>  上面的例子中，”c”是key，<code>&#123;value: &quot;haha&quot;, writable: false, enumerable: false, configurable: true&#125;</code>是value</p>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2020-07-12</span><i class="fa fa-tag"></i><a class="tag" href="/tags/OOP/" title="OOP">OOP </a><span class="leancloud_visitors"></span></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="" onclick="javascript:join_favorite()" ref="sidebar"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" target="_blank" rel="noopener" href="http://twitter.com/home?status=,http://example.com/2020/07/12/what_is_OOP/,Feymann,什么是面向对象,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/2020/07/19/OOP_prototype/" title="什么是面向对象">上一篇</a></li><li class="next pagbuttons"><a class="btn" role="navigation" href="/2020/04/12/HTTPS/" title="HTTPS">下一篇</a></li></ul></div><script src="/js/visitors.js"></script><a id="comments"></a><div id="vcomments" style="margin:0 30px;"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//cdn.jsdelivr.net/gh/xcss/valine@latest/dist/Valine.min.js"></script><script>var valine = new Valine({
+  el:'#vcomments',
+  notify:false || false, 
+  verify:false|| false, 
+  app_id:'',
+  app_key:'',
+  placeholder:'...',
+  path: window.location.pathname,
+  serverURLs: '',
+  visitor:true,
+  recordIP:true,
+  avatar:'mp'
+})</script></div></div></div></div><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/add-bookmark.js"></script><script src="/js/baidu-tongji.js"></script></body></html>
